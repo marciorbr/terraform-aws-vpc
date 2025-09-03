@@ -31,6 +31,5 @@ repos:
       entry: tflint
       language: system
       types: [terraform]
-      args:
-        - --recursive
-        - --config=.tflint.hcl
+      pass_filenames: false
+      args: ["--chdir=./", "--config=.tflint.hcl", "--recursive"]
