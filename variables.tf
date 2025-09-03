@@ -14,3 +14,9 @@ variable "envionment" {
   type        = string
 
 }
+
+variable "vpc_additional_cidrs" {
+  type        = list(string)
+  description = "A list of additional CIDR blocks to associate with the VPC"
+  default     = []
+}

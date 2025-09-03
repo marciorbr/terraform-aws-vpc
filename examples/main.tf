@@ -9,13 +9,15 @@ locals {
     ManagedBy  = "Terraform"
   }
 
-  cidr_block = "10.200.0.0/18"
+  cidr_block           = "10.200.0.0/18"
+  vpc_additional_cidrs = ["100.64.0.0/16"]
 }
 
 module "vpc" {
-  source       = "../"
-  cidr_block   = local.cidr_block
-  envionment   = local.envionment
-  project_name = local.project_name
+  source               = "../"
+  cidr_block           = local.cidr_block
+  envionment           = local.envionment
+  project_name         = local.project_name
+  vpc_additional_cidrs = local.vpc_additional_cidrs
 
 }
