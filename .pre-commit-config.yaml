@@ -23,6 +23,14 @@ repos:
     - id: terraform_docs
       args:
         - --args=--output-file TF-DOCS.md
+
+- repo: local
+  hooks:
     - id: terraform_tflint
+      name: tflint (local)
+      entry: tflint
+      language: system
+      types: [terraform]
       args:
-        - --args=--config=.tflint.hcl
+        - --recursive
+        - --config=.tflint.hcl
