@@ -11,6 +11,20 @@ locals {
 
   cidr_block           = "10.200.0.0/18"
   vpc_additional_cidrs = ["100.64.0.0/16"]
+
+  public_subnets = [
+    {
+      name              = "public-1a"
+      cidr              = "10.200.0.0/20"
+      availability_zone = "us-east-1a"
+    },
+    {
+      name              = "public-1b"
+      cidr              = "10.200.16.0/20"
+      availability_zone = "us-east-1b"
+    }
+  ]
+
 }
 
 module "vpc" {
@@ -19,5 +33,6 @@ module "vpc" {
   envionment           = local.envionment
   project_name         = local.project_name
   vpc_additional_cidrs = local.vpc_additional_cidrs
+  public_subnets       = local.public_subnets
 
 }

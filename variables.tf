@@ -20,3 +20,13 @@ variable "vpc_additional_cidrs" {
   description = "A list of additional CIDR blocks to associate with the VPC"
   default     = []
 }
+
+variable "public_subnets" {
+  description = "A list of maps defining the public subnets"
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+
+}
