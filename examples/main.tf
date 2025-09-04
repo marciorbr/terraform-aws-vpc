@@ -25,6 +25,19 @@ locals {
     }
   ]
 
+  private_subnets = [
+    {
+      name              = "private-1a"
+      cidr              = "10.200.48.0/21"
+      availability_zone = "us-east-1a"
+    },
+    {
+      name              = "private-1b"
+      cidr              = "10.200.56.0/21"
+      availability_zone = "us-east-1b"
+    }
+  ]
+
 }
 
 module "vpc" {
@@ -34,5 +47,6 @@ module "vpc" {
   project_name         = local.project_name
   vpc_additional_cidrs = local.vpc_additional_cidrs
   public_subnets       = local.public_subnets
+  private_subnets      = local.private_subnets
 
 }

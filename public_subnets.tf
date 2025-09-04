@@ -11,7 +11,7 @@ resource "aws_subnet" "public" {
   }
 
   depends_on = [
-    aws_vpc.vpc
+    aws_vpc_ipv4_cidr_block_association.main
   ]
 }
 

@@ -30,3 +30,13 @@ variable "public_subnets" {
   }))
 
 }
+
+variable "private_subnets" {
+  description = "A list of maps defining the private subnets"
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+
+}
