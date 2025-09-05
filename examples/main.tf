@@ -1,6 +1,6 @@
 locals {
   region       = "us-east-1"
-  envionment   = "dev"
+  environment  = "dev"
   project_name = "myproject"
   additional_aws_tags = {
     Owner      = "DevOpsTeam"
@@ -43,7 +43,7 @@ locals {
 module "vpc" {
   source               = "../"
   cidr_block           = local.cidr_block
-  envionment           = local.envionment
+  environment          = local.environment
   project_name         = local.project_name
   vpc_additional_cidrs = local.vpc_additional_cidrs
   public_subnets       = local.public_subnets
