@@ -4,7 +4,7 @@ resource "aws_eip" "eip" {
   domain = "vpc"
 
   tags = {
-    Name = "eip-${var.environment}-${var.project_name}-${var.public_subnets[count.index].name}"
+    Name = "eip-${local.name_prefix}-${var.public_subnets[count.index].name}"
   }
 }
 
@@ -17,7 +17,7 @@ resource "aws_nat_gateway" "main" {
   subnet_id = aws_subnet.public[count.index].id
 
   tags = {
-    Name = "natgw-${var.environment}-${var.project_name}-${var.public_subnets[count.index].name}"
+    Name = "natgw-${local.name_prefix}-${var.public_subnets[count.index].name}"
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "private" {
   availability_zone = var.private_subnets[count.index].availability_zone
 
   tags = {
-    Name = "subnet-${var.environment}-${var.project_name}-${var.private_subnets[count.index].name}"
+    Name = "subnet-${local.name_prefix}-${var.private_subnets[count.index].name}"
   }
 
   depends_on = [
@@ -43,7 +43,7 @@ resource "aws_route_table" "private" {
 
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name = "rt-${var.environment}-${var.project_name}-${var.private_subnets[count.index].name}"
+    Name = "rt-${local.name_prefix}-${var.private_subnets[count.index].name}"
   }
 }
 
