@@ -60,7 +60,7 @@ resource "aws_route" "private" {
       var.public_subnets[*].availability_zone,
       var.private_subnets[count.index].availability_zone
     )
-  ].id
+  ].id # filtra o nat gateway pela zona de disponibilidade para associar varias private subnets a apenas 3 internet gateways
 
 }
 

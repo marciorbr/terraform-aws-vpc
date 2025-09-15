@@ -40,3 +40,14 @@ variable "private_subnets" {
   }))
 
 }
+
+variable "database_subnets" {
+  description = "A list of maps defining the database subnets"
+  default     = []
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
+  }))
+
+}
