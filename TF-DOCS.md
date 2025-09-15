@@ -29,6 +29,7 @@ No modules.
 | [aws_route_table.public_internet_access](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/route_table) | resource |
 | [aws_route_table_association.private](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/route_table_association) | resource |
 | [aws_route_table_association.public](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/route_table_association) | resource |
+| [aws_subnet.database](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/subnet) | resource |
 | [aws_subnet.private](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/subnet) | resource |
 | [aws_subnet.public](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/subnet) | resource |
 | [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/6.11.0/docs/resources/vpc) | resource |
@@ -39,6 +40,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | The CIDR block for the VPC | `string` | n/a | yes |
+| <a name="input_database_subnets"></a> [database\_subnets](#input\_database\_subnets) | A list of maps defining the database subnets | <pre>list(object({<br/>    name              = string<br/>    cidr              = string<br/>    availability_zone = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment (e.g., dev, prod) | `string` | n/a | yes |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | A list of maps defining the private subnets | <pre>list(object({<br/>    name              = string<br/>    cidr              = string<br/>    availability_zone = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project | `string` | n/a | yes |
